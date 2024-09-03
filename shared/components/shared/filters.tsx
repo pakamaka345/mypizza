@@ -37,8 +37,8 @@ export const Filter: React.FC<Props> = ({ className }) => {
                 onClickCheckbox={filters.setPizzaTypes}
                 selected={filters.pizzaTypes}
                 items={[
-                    { text: 'Thin', value: '1' },
-                    { text: 'Traditional', value: '2' },
+                    { text: 'Traditional', value: '1' },
+                    { text: 'Thin', value: '2' },
                 ]}
             />
 
@@ -59,11 +59,11 @@ export const Filter: React.FC<Props> = ({ className }) => {
             <div className='mt-5 border-y border-y-neutral-100 py-6 pb-7'>
                 <p className='font-bold mb-3'>Price from and to</p>
                 <div className='flex gap-3 mb-5'>
-                    <Input type='number' placeholder='0' min={0} max={100} value={String(filters.prices.priceFrom)} onChange={(e) => filters.setPrices('priceFrom', Number(e.target.value))} />
-                    <Input type='number' placeholder='100' min={10} max={100} value={String(filters.prices.priceTo)} onChange={(e) => filters.setPrices('priceTo', Number(e.target.value))} />
+                    <Input type='number' placeholder='0' min={0.0} max={100.0} value={String(filters.prices.priceFrom)} onChange={(e) => filters.setPrices('priceFrom', Number(e.target.value))} />
+                    <Input type='number' placeholder='100' min={10.0} max={50.0} value={String(filters.prices.priceTo)} onChange={(e) => filters.setPrices('priceTo', Number(e.target.value))} />
                 </div>
 
-                <RangeSlider min={0} max={100} step={1} value={[filters.prices.priceFrom || 0, filters.prices.priceTo || 100]}
+                <RangeSlider min={0.0} max={50.0} step={0.2} value={[filters.prices.priceFrom || 0.0, filters.prices.priceTo || 50.0]}
                     onValueChange={updatePrices}
                 />
             </div>

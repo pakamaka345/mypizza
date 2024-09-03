@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { categories, ingredients, products } from "./constants";
+import { categories, _ingredients, products } from "./constants";
 import { prisma } from "./prisma-client";
 import { hashSync } from 'bcrypt';
 
@@ -40,7 +40,7 @@ async function up() {
     });
 
     await prisma.ingredient.createMany({
-        data: ingredients
+        data: _ingredients
     });
 
     await prisma.product.createMany({
@@ -53,7 +53,7 @@ async function up() {
             imageUrl: 'https://prontopizza.ua/lviv/wp-content/uploads/sites/17/2021/07/salyami-1-300x300.webp',
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(0, 5),
+                connect: _ingredients.slice(0, 5),
             },
         },
     });
@@ -64,7 +64,7 @@ async function up() {
             imageUrl: 'https://prontopizza.ua/lviv/wp-content/uploads/sites/17/2021/07/4-syry-300x300.webp',
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(5, 10),
+                connect: _ingredients.slice(5, 10),
             },
         },
     });
@@ -75,7 +75,7 @@ async function up() {
             imageUrl: 'https://prontopizza.ua/lviv/wp-content/uploads/sites/17/2021/07/kaprichoza-1-300x300.webp',
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(10, 40),
+                connect: _ingredients.slice(10, 40),
             },
         },
     });
