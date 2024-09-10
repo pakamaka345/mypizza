@@ -1,3 +1,5 @@
+"use client";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { formRegisterSchema, TFormRegisterValues } from "./schema";
 import { FormProvider, useForm } from "react-hook-form";
